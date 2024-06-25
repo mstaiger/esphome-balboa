@@ -5,4 +5,4 @@ substitutions:
   device_description: "Balboa Hot Tub Control System"
 
 packages:
-  econet: !include balboa_base.yaml
+  balboa: !include balboa_base.yaml
