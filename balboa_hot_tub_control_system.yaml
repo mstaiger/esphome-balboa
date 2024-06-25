@@ -6,3 +6,8 @@ substitutions:
 
 packages:
   balboa: !include balboa_base.yaml
+
+climate:
+  - platform: balboa
+    id: balboa_climate
+    name: None
