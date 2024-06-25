@@ -6,7 +6,7 @@ substitutions:
   board: esp32dev
 
 packages:
-  econet:
+  balboa:
     url: https://github.com/mstaiger/esphome-balboa
     ref: main
     file: balboa_hot_tub_control_system.yaml
