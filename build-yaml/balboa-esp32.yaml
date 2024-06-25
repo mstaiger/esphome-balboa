@@ -1,0 +1,12 @@
+---
+substitutions:
+  tx_pin: GPIO19
+  rx_pin: GPIO22
+  platform: esp32
+  board: esp32dev
+
+packages:
+  econet:
+    url: https://github.com/mstaiger/esphome-balboa
+    ref: main
+    file: balboa_hot_tub_control_system.yaml

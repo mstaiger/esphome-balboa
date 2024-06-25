@@ -1,0 +1,54 @@
+---
+---
+substitutions:
+  name: "balboa"
+  friendly_name: "Balboa Device"
+  device_description: "Balboa Device"
+  tx_pin: GPIO19
+  rx_pin: GPIO22
+  platform: esp32
+  board: esp32dev
+  github_ref: main
+  external_components_source: github://mstaiger/esphome-balboa@${github_ref}
+  logger_level: WARN
+  balboa_update_interval: 30s
+  balboa_alarm_update_interval: 30s
+  balboa_alarm_history_update_interval: 60s
+  wifi_module_address: "0x340"
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  comment: ${device_description}
+  min_version: "2024.6.0"
+  platform: $platform
+  board: $board
+  project:
+    name: "mstaiger.esphome-balboa"
+    version: v0.1.0
+preferences:
+  flash_write_interval: "24h"
+wifi:
+  ap:
+captive_portal:
+ota:
+  platform: esphome
+logger:
+  level: ${logger_level}
+  tx_buffer_size: 1024
+external_components:
+  - source: ${external_components_source}
+uart:
+  id: balboa_uart
+  baud_rate: 115200
+  rx_buffer_size: 1500
+  tx_pin: ${tx_pin}
+  rx_pin: ${rx_pin}
+balboa:
+  id: balboa_id
+  uart_id: balboa_uart
+  update_interval: ${balboa_update_interval}
+  request_mod_update_intervals:
+    1: ${balboa_alarm_update_interval}
+    2: ${balboa_alarm_history_update_interval}
+    3: ${balboa_alarm_history_update_interval}
+  src_address: ${wifi_module_address}
