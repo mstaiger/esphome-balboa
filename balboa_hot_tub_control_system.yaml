@@ -4,8 +4,8 @@ substitutions:
   friendly_name: "Hot Tub Control System"
   device_description: "Balboa Hot Tub Control System"
 
-packages:
-  balboa: !include balboa_base.yaml
+# packages:
+#   balboa: !include balboa_base.yaml
 
 climate:
   - platform: balboa
