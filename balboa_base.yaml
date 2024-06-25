@@ -29,6 +29,12 @@ preferences:
 wifi:
   ap:
 captive_portal:
+api:
+  services: read
+  variables:
+    datapoint_id: string
+  then:
+    - lambda: id(balboa_id).homeassistant_read(datapoint_id)
 ota:
   platform: esphome
 logger:
