@@ -1,0 +1,22 @@
+---
+substitutions:
+  name: "balboa-generic"
+  friendly_name: "Spa Tub"
+  device_description: "Balboa Spa Tub"
+
+packages:
+  balboa: !include balboa_base.yaml
+
+balboa:
+  dst_address: 0x1280
+
+sensor:
+  - platform: balboa
+    name: "Ambient Temperature"
+    id: ambient_temp
+    sensor_datapoint: AMBIENTT
+    unit_of_measurement: "°F"
+    accuracy_decimals: 1
+    device_class: "temperature"
+    state_class: "measurement"
+    entity_category: "diagnostic"
