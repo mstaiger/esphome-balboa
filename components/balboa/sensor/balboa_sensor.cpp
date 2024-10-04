@@ -7,6 +7,12 @@ namespace balboa {
 static const char *const TAG = "balboa.sensor";
 
 void BalboaSensor::setup() {
+  if (this->parent_ == nullptr) {
+    ESP_LOGE(TAG, "Parent Balboa component is not set!");
+    this->mark_failed();
+    return;
+  }
+
   this->parent_->register_listener(
       this->sensor_id_, this->request_mod_, this->request_once_,
       [this](const BalboaDatapoint &datapoint) {
