@@ -1,0 +1,16 @@
+---
+substitutions:
+  tx_pin: GPIO19
+  rx_pin: GPIO22
+  platform: esp32
+  board: esp32dev
+
+packages:
+  balboa:
+    url: https://github.com/mstaiger/esphome-balboa
+    ref: main
+    file: balboa_generic.yaml
+
+dashboard_import:
+  package_import_url: github://mstaiger/esphome-balboa/build-yaml/${name}-${platform}.yaml@${github_ref}
+  import_full_config: false
