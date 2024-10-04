@@ -105,10 +105,10 @@ CONFIG_SCHEMA = (
     .extend(uart.UART_DEVICE_SCHEMA)
 )
 
-CONF_ECONET_ID = "balboa_id"
-ECONET_CLIENT_SCHEMA = cv.Schema(
+CONF_BALBOA_ID = "balboa_id"
+BALBOA_CLIENT_SCHEMA = cv.Schema(
     {
-        cv.GenerateID(CONF_ECONET_ID): cv.use_id(Balboa),
+        cv.GenerateID(CONF_BALBOA_ID): cv.use_id(Balboa),
         cv.Optional(CONF_REQUEST_MOD, default=0): request_mod,
         cv.Optional(CONF_REQUEST_ONCE, default=False): cv.boolean,
         cv.Optional(CONF_SRC_ADDRESS, default=0): cv.uint32_t,
